@@ -12,7 +12,7 @@
 
 ## How to get in?
 
-​		Well, first, since it is only for practice, I'm not sure how long this project will live. So there is not much reason for you to join in. I wrote this README.md is all just for practice. However, if you really really want to join this project just for fun, you can get connect with through
+​		Well, first, since it is only for practice, I'm not sure how long this project will live. So there is not much reason for you to join in. I wrote this README.md is all just for practice. However, if you really really want to join this project just for fun, you can get connect with me through:
 
 - my email: RunfeiWu.njit@outlook.com 
 - QQ (If you know what that is) : 906486615
