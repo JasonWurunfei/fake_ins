@@ -23,5 +23,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include('home.urls', namespace='home')),
     path('admin/', admin.site.urls),
-    path('accounts/', include(('django.contrib.auth.urls', 'home'), namespace='accounts')),
+    path('accounts/', include(('django.contrib.auth.urls', 'accounts'), namespace='accounts')),
+    path('register/', include(('register.urls', 'register'), namespace='register')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

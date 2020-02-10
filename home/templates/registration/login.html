@@ -46,6 +46,6 @@
     </form>
 
     {# Assumes you setup the password_reset view in your URLconf #}
-    <p>Not have an account? <a href="not_yet">Create</a> one!</p>
+    <p>Not have an account? <a href="{% url 'register:register' %}">Create</a> one!</p>
 
 {% endblock %}
