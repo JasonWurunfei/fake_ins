@@ -2,11 +2,26 @@
 
 {% block title %}My Fake Instagram{% endblock %}
 
+{% block sidebar %}
+        
+    <a href="/">Home</a> -
+    {% if user.is_authenticated %}
+            <a href="{% url 'accounts:logout' %}">Logout</a> -
+            hello! {{ user.username }}
+        {% else %}
+            <a href="{% url 'accounts:login' %}">Login</a>
+    {% endif %}
+    
+        
+{% endblock %}
+
 {% block content %}
+
 {% for entry in blog_entries %}
     <h2>{{ entry.title }}</h2>
     <p>{{ entry.body }}</p>
 {% endfor %}
+
     <a href="{% url 'home:post' %}">Post now!</a>
     <ul>
         {% for post in posts %}
