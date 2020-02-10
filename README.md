@@ -4,7 +4,7 @@
 
 ## What is this about?
 
-​		This is just a perfect practice project for anyone who is interested in using Django to develop web application. Meanwhile, get use to the Github way of collaboration in a opensource project.
+​		This is just a perfect practice project for anyone who is interested in using Django to develop web applications. Meanwhile, get use to the Github way of collaboration in a opensource project.
 
 ## why Instagram?
 
