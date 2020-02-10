@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}My amazing blog{% endblock %}
+{% block title %}My Fake Instagram{% endblock %}
 
 {% block content %}
 {% for entry in blog_entries %}
@@ -8,4 +8,12 @@
     <p>{{ entry.body }}</p>
 {% endfor %}
     <a href="{% url 'home:post' %}">Post now!</a>
+    <ul>
+        {% for post in posts %}
+            <li><img src="{{ post.pics.photo.url }}"></li>
+        {% endfor %}
+    </ul>
+    {% for post in posts %}
+
+    {% endfor %}
 {% endblock %}
