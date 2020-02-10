@@ -1,15 +1,21 @@
+# Http related
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+# Form related
 from django import forms
 from .forms import PostForm
+# Models and Database related 
 from .models import Pic, Post
 from django.contrib.auth.models import User
+# Others
 import datetime
+
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    posts = Post.objects.all()
+    return render(request, 'home/home.html', context={"posts": posts})
 
 
 def post(request):
