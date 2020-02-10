@@ -2,6 +2,12 @@
 
 ----
 
+## Environment requirements
+
+- Python 3.6.7
+- Pillow == 6.1.0
+- Django == 2.2.6
+
 ## What is this about?
 
 ​		This is just a perfect practice project for anyone who is interested in using Django to develop web applications. Meanwhile, get use to the Github way of collaboration in a opensource project.

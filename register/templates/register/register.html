@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}My Fake Instagram{% endblock %}
+
+{% block sidebar %}
+        
+    <a href="/">Home</a> -
+    <a href="{% url 'accounts:login' %}">Login</a>
+        
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'register:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}
