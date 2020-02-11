@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'register.apps.RegisterConfig',
+    'comment.apps.CommentConfig',
 ]
 
 MIDDLEWARE = [
