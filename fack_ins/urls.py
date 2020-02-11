@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from comment.views import CommentView
+
 from django.urls import path, include
 
 # import this so that to host static files
@@ -25,4 +27,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include(('django.contrib.auth.urls', 'accounts'), namespace='accounts')),
     path('register/', include(('register.urls', 'register'), namespace='register')),
+    path('<int:post_id>/', CommentView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
