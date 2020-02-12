@@ -1,6 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.contrib.contenttypes.fields import GenericRelation
+
+import sys
+sys.path.append('../')
+from comment.models import Comment
+
 # Create your models here.
 
 
@@ -16,6 +22,7 @@ class Pic(models.Model):
 
 
 class Post(models.Model):
+    comments        = GenericRelation(Comment)
     user            = models.ForeignKey(User, on_delete=models.CASCADE)
     pics            = models.ForeignKey(Pic, on_delete=models.CASCADE)
     pub_date        = models.DateTimeField('date published')
@@ -23,11 +30,6 @@ class Post(models.Model):
     post_likes      = models.IntegerField(default=0)
     post_dislikes   = models.IntegerField(default=0)
 
+    
 
-class Comment(models.Model):
-    user            = models.ForeignKey(User, on_delete=models.CASCADE)
-    post_dislikes   = models.ForeignKey(Post, on_delete=models.CASCADE)
-    pub_date        = models.DateTimeField('date published')
-    comment_text    = models.CharField(max_length=200)
-    post_likes      = models.IntegerField(default=0)
-    post_dislikes   = models.IntegerField(default=0)
+
