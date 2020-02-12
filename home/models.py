@@ -30,6 +30,8 @@ class Post(models.Model):
     post_likes      = models.IntegerField(default=0)
     post_dislikes   = models.IntegerField(default=0)
 
+
+
     
 
 

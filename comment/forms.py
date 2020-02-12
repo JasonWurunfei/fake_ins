@@ -1,5 +1,4 @@
 from django import forms
 
-class ContactForm(forms.Form):
-    name = forms.CharField()
-    message = forms.CharField(widget=forms.Textarea)
+class CommentForm(forms.Form):
+    comment_text = forms.CharField(label="Leave your comment:", widget=forms.Textarea)
