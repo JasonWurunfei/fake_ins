@@ -6,4 +6,3 @@ from .models import Pic, Post, Comment
 
 admin.site.register(Pic)
 admin.site.register(Post)
-admin.site.register(Comment)

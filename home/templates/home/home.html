@@ -15,6 +15,8 @@
         
 {% endblock %}
 
+{% load comment_extras %}
+
 {% block content %}
 
 {% for entry in blog_entries %}
@@ -31,7 +33,7 @@
                 <p>{{ post.post_text }}</p>
                 <img src="{{ post.pics.photo.url }}">
                 <br>
-                <a href="/">comment</a>
+                <a href="/{{ post.id }}/">comment</a>
                 <br>
                 <label>Likes</label>
                 <p>{{ post.post_likes }}</p>
@@ -39,6 +41,12 @@
                 <p>{{ post.post_dislikes }}</p>
                 <button type="button">like</button>
                 <button type="button">dislike</button>
+                {% for comment in post.comments.all %}
+                    <h2>{% get_username_from_userid comment.user_id %} says: </h2>
+                    <p>{{ comment.comment_text }}</p>
+                    <br>
+                    <h2>{{ comment.pub_date }}</h2>
+                {% endfor%}
             </li>
         {% endfor %}
     </ul>
