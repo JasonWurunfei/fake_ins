@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from comment.views import CommentView
+from likes_and_dislikes.views import PostlikesToggleView
 
 from django.urls import path, include
 
@@ -27,5 +28,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include(('django.contrib.auth.urls', 'accounts'), namespace='accounts')),
     path('register/', include(('register.urls', 'register'), namespace='register')),
-    path('<int:post_id>/', CommentView.as_view()),
+    path('<int:post_id>/', CommentView.as_view(), name='comment'),
+    path('<int:post_id>/<slug:slug>/', PostlikesToggleView.as_view(), name='like-toggle'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

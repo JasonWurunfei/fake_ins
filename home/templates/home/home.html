@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% load comment_extras %}
+{% load count_likes %}
 
 {% block content %}
 
@@ -35,17 +36,18 @@
                 <br>
                 <a href="/{{ post.id }}/">comment</a>
                 <br>
-                <label>Likes</label>
-                <p>{{ post.post_likes }}</p>
-                <label>Dislikes</label>
-                <p>{{ post.post_dislikes }}</p>
-                <button type="button">like</button>
-                <button type="button">dislike</button>
+                <label>Likes {% get_likes_number post_type_id post.id %}</label>
+               
+                <label>Dislikes {% get_dislikes_number 8 post.id %}</label>
+                <br>
+                <a href="/{{ post.id }}/like">like</a>
+                <a href="/{{ post.id }}/dislike">dislike</a>
+
                 {% for comment in post.comments.all %}
-                    <h2>{% get_username_from_userid comment.user_id %} says: </h2>
+                    <h2>{{ comment.pub_date }} {% get_username_from_userid comment.user_id %} says: </h2>
                     <p>{{ comment.comment_text }}</p>
                     <br>
-                    <h2>{{ comment.pub_date }}</h2>
+
                 {% endfor%}
             </li>
         {% endfor %}

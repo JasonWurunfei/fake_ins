@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'register.apps.RegisterConfig',
     'comment.apps.CommentConfig',
+    'likes_and_dislikes.apps.LikesAndDislikesConfig',
 ]
 
 MIDDLEWARE = [
