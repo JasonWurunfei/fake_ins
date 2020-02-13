@@ -27,8 +27,7 @@ class Post(models.Model):
     pics            = models.ForeignKey(Pic, on_delete=models.CASCADE)
     pub_date        = models.DateTimeField('date published')
     post_text       = models.CharField(max_length=200)
-    post_likes      = models.IntegerField(default=0)
-    post_dislikes   = models.IntegerField(default=0)
+
 
 
 

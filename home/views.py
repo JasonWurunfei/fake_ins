@@ -7,6 +7,7 @@ from .forms import PostForm
 # Models and Database related 
 from .models import Pic, Post
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 # Others
 import datetime
 
@@ -15,7 +16,10 @@ import datetime
 
 def home(request):
     posts = Post.objects.all()
-    return render(request, 'home/home.html', context={"posts": posts})
+    post_type = ContentType.objects.get(
+                            app_label='home', model='post'
+            )
+    return render(request, 'home/home.html', context={"posts": posts, "post_type_id": post_type.id})
 
 
 def post(request):
