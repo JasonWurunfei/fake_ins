@@ -25,9 +25,14 @@ class CommentView(FormView):
 
     def get(self, request, *args, **kwargs):
         """Handle GET requests: instantiate a blank version of the form."""
-        return self.render_to_response(
-            self.get_context_data(post_id = kwargs['post_id'], post=Post.objects.get(id=kwargs['post_id']))
-        )
+        user = request.user
+        if user.is_authenticated:
+
+            return self.render_to_response(
+                self.get_context_data(post_id = kwargs['post_id'], post=Post.objects.get(id=kwargs['post_id']))
+            )
+        else:
+            return HttpResponseRedirect('/accounts/login/')
 
 
     def post(self, request, *args, **kwargs):
