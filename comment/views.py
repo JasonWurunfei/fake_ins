@@ -55,6 +55,7 @@ class CommentView(FormView):
                 object_id=kwargs['post_id'],
                 )
             comment.save()
+            self.success_url = '/{}'.format(int(kwargs['post_id']))
             return HttpResponseRedirect(self.get_success_url())
         else:
             return self.form_invalid(form)

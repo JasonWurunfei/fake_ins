@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block title %}My Fake Instagram{% endblock %}
 
 {% block sidebar %}
@@ -10,9 +10,10 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post" action="{% url 'register:register' %}">
+    <form method="post" class="form-group" action="{% url 'register:register' %}">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Register</button>
     </form>
 {% endblock %}
+
