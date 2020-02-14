@@ -1,16 +1,35 @@
 {% extends "base.html" %}
-
+{% load comment_extras %}
 {% block title %}post comment{% endblock %}
-
+{% load crispy_forms_tags %}
 {% block content %}
     <h1>{{ post.user }}</h1>
     <h1>{{ post.pub_date }}</h1>
     <p>{{ post.post_text }}</p>
-    <img src="{{ post.pics.photo.url }}">
 
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+            <title>Placeholder</title>
+             <image xlink:href="{{ post.pics.photo.url }}" width="100%" height="100%"/>
+          </svg>
+
+          
+          </div>
+        </div>
+      </div>
+            
+
+    {% for comment in post.comments.all %}
+        <h2>{{ comment.pub_date }} {% get_username_from_userid comment.user_id %} says: </h2>
+        <p>{{ comment.comment_text }}</p>
+        <br>
+    {% endfor%}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <input type="submit" value="Comment">
     </form>
+
 {% endblock %}

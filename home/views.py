@@ -51,12 +51,15 @@ def post(request):
         else:
             print("not valid")
 
+        return render(request, 'home/post.html', context={'form': form})
+
     else:
-        form = PostForm(initial=initial_data)
-        form.fields['user_id'].widget   = forms.HiddenInput()
-        form.fields['pub_date'].widget  = forms.HiddenInput()
+        if request.user.is_authenticated:
+            form = PostForm(initial=initial_data)
+            form.fields['user_id'].widget   = forms.HiddenInput()
+            form.fields['pub_date'].widget  = forms.HiddenInput()
 
-        
+            return render(request, 'home/post.html', context={'form': form})
 
-
-    return render(request, 'home/post.html', context={'form': form})
+        else:
+            return HttpResponseRedirect('/accounts/login/')
